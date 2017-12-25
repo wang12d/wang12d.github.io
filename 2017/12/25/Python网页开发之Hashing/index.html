@@ -17,10 +17,12 @@
 
 
 
-  <meta name="description" content="论失败我可是最强的~"/>
+  <meta name="description" content="Python网页开发之Hashing"/>
 
 
 
+
+  <meta name="keywords" content="前端 python GAE(GoogleAppEngine), 億万笑者" />
 
 
 
@@ -40,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://iwh98.com/"/>
+<link rel="canonical" href="http://iwh98.com/2017/12/25/Python网页开发之Hashing/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -77,7 +79,7 @@
 
 
 
-    <title> 億万笑者 </title>
+    <title> Python网页开发之Hashing - 億万笑者 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -224,14 +226,12 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  <section id="posts" class="posts">
-    
-      
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2017/12/25/Python网页开发之Hashing/">Python网页开发之Hashing</a>
+          Python网页开发之Hashing
         
       </h1>
 
@@ -249,11 +249,7 @@
 
     <div class="post-content">
       
-        
-        
-
-        
-          <p><strong>这是Udacity的Web Development中Unit3的内容</strong></p>
+        <p><strong>这是Udacity的Web Development中Unit3的内容</strong></p>
 <p>在进入正题之前先来讲一讲Cookie</p>
 <p>什么是Cookie？根据维基百科的定义</p>
 <blockquote>
@@ -270,70 +266,69 @@
 <p>对于一些安全等级高的信息来说，在存储的时候就不能够使用原码（估计没人想要把自己的密码原封不动的存储在数据库里面）。一开是就要使用加密后的信息存储，在根据用户传进来的信息进行确认。<br>同样的，在进行加密的时候，不能简单直接加密。这里，我们使用一种随机加密方法：随机产生几个字符(称为salt），将这几个字符与用户输入的密码一同进行加密。然后，利用产生的随机字符来确认用户的信息。<br>其python实现如下:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> haslib, string</span><br><span class="line"><span class="comment"># 产生5个随机字符</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_salt</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(random.choice(string.letters) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对用户名进行加密</span></span><br><span class="line"><span class="comment"># name是用户名，password是密码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_password_hash</span><span class="params">(name, password, salt=None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> salt:</span><br><span class="line">        salt = make_salt()</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"%s|%s"</span> % (hashlib.sha256(name + password + salt).hexdigest())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行检查</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">valid_password</span><span class="params">(name, password, hash_string)</span>:</span></span><br><span class="line">    _, salt = hash_string.split(<span class="string">'|'</span>)</span><br><span class="line">    <span class="keyword">return</span> make_password_hash(name, password, salt) == hash_string</span><br></pre></td></tr></table></figure></p>
 <p>这样，用户就能够放心的点“记住我”了，而不用担心密码会被泄露的问题。</p>
 
-        
       
     </div>
 
     
-
-    
-
-  </article>
-
-    
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/11/27/Hello-World-0/">Hello,World!</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-11-27
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
       
-        
-        
 
-        
-          <blockquote>
-<p>经过几个小时的努力，我的个人网站终于算是落成了。也算是完成了自己的一个新年愿望了。本网站主要用来记录下个人的学习心得以及没事吹逼开车之类的事。<br>现在这个网站还很简陋，以后在慢慢完善吧。<br>最后，多谢Visugar小姐姐的<a href="http://www.visugar.com" target="_blank" rel="noopener">教程</a>，真是简单易懂。</p>
-</blockquote>
-
-        
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://iwh98.com">老王</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://iwh98.com/2017/12/25/Python网页开发之Hashing/">http://iwh98.com/2017/12/25/Python网页开发之Hashing/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
       
-    </div>
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
 
+
+
+      
+      
     
 
     
-
-  </article>
-
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/前端-python-GAE-GoogleAppEngine/">前端 python GAE(GoogleAppEngine)</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
     
-  </section>
-
-  
-  <nav class="pagination">
     
+      <a class="next" href="/2017/11/27/Hello-World-0/">
+        <span class="next-text nav-default">Hello,World!</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
+
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
       </main>
@@ -411,6 +406,8 @@
     </div>
 
     
+  
+
 
 
     
